@@ -9,17 +9,15 @@ class UserController {
 
     val userDao = UserDao()
 
-    init {
-        println("User Controller Initialization")
-    }
-
     val userRoute = {
         get("") { req, res ->
             jacksonObjectMapper().writeValueAsString(userDao.users)
         }
 
         get("/:id") { req, res ->
-            userDao.findById(req.params("id").toInt())
+            var id = req.params("id")
+            println("id  [ $id ]")
+            userDao.findById(id.toInt())
         }
 
         get("/email/:email") { req, res ->
@@ -45,6 +43,11 @@ class UserController {
             userDao.delete(req.params("id").toInt())
             "ok"
         }
+    }
+
+    init {
+        println("User Controller Initialization")
+        path("/users", userRoute)
     }
 
     // add "qp()" alias for "queryParams()" on Request object

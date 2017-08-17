@@ -10,7 +10,8 @@ class UserDao {
             1 to User(name = "Bob", email = "bob@bob.kt", id = 1),
             2 to User(name = "Carol", email = "carol@carol.kt", id = 2),
             3 to User(name = "Dave", email = "dave@dave.kt", id = 3),
-            4 to User(name = "Dave", email = "dave@dave.kt", id = 3, age = 29)
+            4 to User(name = "Dave", email = "dave@dave.kt", id = 3, age = 29),
+            5 to User(name = "Dave", email = "dave@dave.kt", id = 3, age = 23)
     )
 
     var lastId: AtomicInteger = AtomicInteger(users.size - 1)
